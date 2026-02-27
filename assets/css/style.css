@@ -13,6 +13,9 @@
   --radius:18px;
 
   --container: 1180px;
+
+  /* ✅ NEW: ارتفاع ثابت للتوب بار */
+  --topbar-h: 52px;
 }
 
 *{box-sizing:border-box}
@@ -85,17 +88,34 @@ img{max-width:100%; display:block}
 .topbar{
   position:sticky;
   top:0;
-  z-index:2000; /* FIX: أعلى من أي عناصر */
+  z-index:2000;
   background: rgba(255,255,255,.75);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
+
+  /* ✅ NEW: ارتفاع ثابت لتفادي “حركة” الناف */
+  height: var(--topbar-h);
 }
 .topbar .inner{
   display:flex; align-items:center; justify-content:space-between;
   padding:10px 0;
   gap:12px;
+
+  /* ✅ NEW: نخلي المحتوى داخل ارتفاع ثابت */
+  height: var(--topbar-h);
 }
-.topbar .msg{color:var(--muted); font-weight:700; font-size:14px}
+
+/* ✅ NEW: ممنوع لف الرسالة (علشان ارتفاع التوب بار ما يتغيرش) */
+.topbar .msg{
+  color:var(--muted);
+  font-weight:700;
+  font-size:14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 150px);
+}
+
 .topbar .tlink{
   display:inline-flex; align-items:center; gap:10px;
   padding:8px 12px;
@@ -104,6 +124,7 @@ img{max-width:100%; display:block}
   background:#fff;
   font-weight:800;
   transition:.2s ease;
+  flex:0 0 auto;
 }
 .topbar .tlink:hover{transform:translateY(-1px)}
 .dot{
@@ -115,8 +136,8 @@ img{max-width:100%; display:block}
 /* ===== Navbar ===== */
 .navbar{
   position:sticky;
-  top:52px;      /* FIX: هيتظبط ديناميكي من JS حسب ارتفاع التوب بار */
-  z-index:1900;  /* FIX */
+  top: var(--topbar-h);     /* ✅ بدل 52px */
+  z-index:1900;
   background: rgba(255,255,255,.75);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
@@ -168,7 +189,6 @@ img{max-width:100%; display:block}
   box-shadow: 0 10px 20px rgba(2,8,23,.06);
   cursor:pointer;
 
-  /* FIX: عشان لو كان فيه overlay فوقه */
   position:relative;
   z-index:2100;
   pointer-events:auto;
@@ -188,7 +208,7 @@ img{max-width:100%; display:block}
   backdrop-filter: blur(6px);
   opacity:0; pointer-events:none;
   transition:.2s ease;
-  z-index:5000; /* FIX */
+  z-index:5000;
 }
 .drawer{
   position:fixed; top:0; right:-360px;
@@ -197,7 +217,7 @@ img{max-width:100%; display:block}
   background: rgba(255,255,255,.92);
   border-left: 1px solid var(--line);
   box-shadow: var(--shadow);
-  z-index:5100; /* FIX */
+  z-index:5100;
   transition:.25s ease;
   display:flex; flex-direction:column;
 }
@@ -263,7 +283,7 @@ body.menu-open .drawer{right:0}
   height:100%;
   display:flex;
   transition: transform .6s cubic-bezier(.2,.8,.2,1);
-  direction:ltr; /* مهم عشان translateX يشتغل صح */
+  direction:ltr;
 }
 .slide{
   min-width:100%;
@@ -385,6 +405,9 @@ body.menu-open .drawer{right:0}
     radial-gradient(circle at 80% 20%, rgba(6,182,212,.25), transparent 60%),
     radial-gradient(circle at 50% 80%, rgba(37,99,235,.15), transparent 60%);
   animation: heroMove 12s ease-in-out infinite alternate;
+
+  /* ✅ NEW: علشان ما يمسكش الكليك فوق الزر */
+  pointer-events:none;
 }
 
 @keyframes heroMove{
@@ -641,8 +664,8 @@ input:focus, textarea:focus{
   border:none;
   outline:none;
   border-radius:16px;
-  background:#fff;
-  box-shadow: 0 14px 30px rgba(2,8,23,.16);
+  /* background:#fff; */
+  /* box-shadow: 0 14px 30px rgba(2,8,23,.16); */
   display:flex;
   align-items:center;
   justify-content:center;
@@ -651,8 +674,8 @@ input:focus, textarea:focus{
 }
 .fbtn:hover{transform:translateY(-2px)}
 .fbtn img{
-  width:28px;
-  height:28px;
+  width:50px;
+  height:50px;
   object-fit:contain;
 }
 
@@ -669,7 +692,7 @@ input:focus, textarea:focus{
 @media (max-width: 980px){
   .hero-grid{grid-template-columns:1fr}
 
-  /* FIX: ارتفاع أكبر للهيرو في الهاتف عشان الكلام مايتقصش */
+  /* (سيبناها زي ما عندك) */
   .slider{min-height:150px}
 
   .hero-content{
@@ -698,7 +721,6 @@ input:focus, textarea:focus{
 }
 
 @media (max-width: 420px){
-  /* FIX: شاشات صغيرة جدًا */
   .slider{min-height:580px}
   .hero-content h1{font-size:20px}
 }
@@ -707,7 +729,6 @@ input:focus, textarea:focus{
 .topbar, .navbar{
   pointer-events: auto;
 }
-
 .navbar .inner, .nav-actions, .burger{
   pointer-events: auto;
 }
@@ -717,89 +738,65 @@ body.menu-open{
   overflow:hidden;
 }
 
-/* ====== Radical Menu Fix ====== */
+/* ✅ NEW: z-index واضح للزر والدروار (من غير أرقام مبالغ فيها تسبب تعارض) */
+.navbar{ z-index: 9000; }
+.topbar{ z-index: 9100; }
+.burger{ z-index: 9200; }
 
-/* لو أي طبقة في الهيرو بتغطي */
-.hero-bg{ pointer-events:none !important; }
+.drawer-backdrop{ z-index: 9500; }
+.drawer{ z-index: 9600; }
 
-/* خليك متأكد إن الزر فوق أي حاجة */
-#menuBtn{
+.logo-img{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  object-fit:cover;
+}
+.media-box{
   position: relative;
-  z-index: 999999 !important;
-  pointer-events: auto !important;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 260px;
+  margin-bottom: 16px; /* مسافة بينهم */
+  box-shadow: 0 10px 25px rgba(2,8,23,.08);
 }
 
-/* خلي الهيدرز فوق */
-.topbar{ z-index: 9000 !important; }
-.navbar{ z-index: 8000 !important; }
-
-/* backdrop/drawer أعلى من الصفحة */
-#menuBackdrop{ z-index: 999990 !important; }
-#menuDrawer{ z-index: 999995 !important; }
-
-/* افتراضيًا مقفول */
-#menuBackdrop{
-  opacity: 0;
-  pointer-events: none;
-  transition: .2s ease;
-}
-#menuDrawer{
-  right: -360px;
-  transition: .25s ease;
+.media-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s ease;
 }
 
-/* حالة الفتح */
-body.menu-open #menuBackdrop{
-  opacity: 1;
-  pointer-events: auto;
-}
-body.menu-open #menuDrawer{
-  right: 0;
-}
-/* ===== ULTRA FIX: خلي زر المنيو فوق أي Overlay ===== */
+.media-content{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  color: #fff;
 
-/* أي طبقات ديكور/هيرو غالبًا بتغطي */
-.hero, .hero-clean, .hero-bg,
-.slider, .slides, .slide,
-.side-card, .section{
-  position: relative;
-  z-index: 1;
-}
-
-/* الهيدرز فوق كل شيء */
-.topbar{
-  position: sticky;
-  top: 0;
-  z-index: 2147483000 !important;
-}
-.navbar{
-  position: sticky;
-  top: 52px; /* لو عندك JS بيظبطها سيبه */
-  z-index: 2147482000 !important;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.2),
+    transparent
+  );
 }
 
-/* أهم سطرين: الزر نفسه فوق الكل + قابل للضغط */
-.burger,
-#menuBtn{
-  position: relative !important;
-  z-index: 2147483647 !important;   /* أعلى z-index ممكن تقريبًا */
-  pointer-events: auto !important;
+.media-content h4{
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 900;
 }
 
-/* لو فيه عنصر وهمي فوق الصفحة بيمنع الضغط */
-.hero-bg{
-  pointer-events: none !important;
+.media-content p{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* خلي أي backdrop الخاص بالدروور مايمسكش الضغط وهو مقفول */
-.drawer-backdrop{
-  pointer-events: none !important;
-}
-body.menu-open .drawer-backdrop{
-  pointer-events: auto !important;
-}
-
-/* الدروور نفسه فوق كل شيء وقت الفتح */
-.drawer{
-  z-index: 2147483600 !important;
+.media-box:hover img{
+  transform: scale(1.05);
 }

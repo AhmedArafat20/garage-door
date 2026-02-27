@@ -6,12 +6,15 @@
   <title>من نحن — الأبواب الأوتوماتيكية بالدمام</title>
   <meta name="description" content="تعرف على فريق الأبواب الأوتوماتيكية بالدمام: خبرة في التركيب والصيانة، تغيير المحركات، وقطع غيار أصلية وخدمة سريعة." />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="shortcut icon" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
 </head>
 
 <body>
   <div class="topbar">
     <div class="container inner">
-      <div class="msg">خدمة سريعة للأبواب الأوتوماتيكية — تشخيص دقيق وتنفيذ مرتب</div>
+      <div class="msg">خدمة سريعة للأبواب الأوتوماتيكية</div>
       <a class="tlink" href="contact.html"><span class="dot"></span> تواصل معنا</a>
     </div>
   </div>
@@ -19,7 +22,7 @@
   <header class="navbar">
     <div class="container inner">
       <a class="brand" href="index.html">
-        <span class="logo" aria-hidden="true"></span>
+        <!-- <img src="assets/img/logo.png" alt="لوجو الموقع" class="logo-img"> -->
         <span class="title">
           الأبواب الأوتوماتيكية بالدمام
           <small>تركيب وصيانة فورية رول / شتر / أمريكي</small>
@@ -36,24 +39,37 @@
       <div class="nav-actions">
         <a class="btn ghost" data-phone href="#">اتصال</a>
         <a class="btn primary" data-wa href="#" target="_blank" rel="noopener noreferrer">واتساب</a>
-        <button class="burger" type="button" data-burger aria-label="فتح قائمة الموبايل">
+
+        <!-- ✅ تعديل جذري: onclick يضمن الفتح -->
+        <button id="menuBtn"
+                class="burger"
+                type="button"
+                data-burger
+                aria-label="فتح قائمة الموبايل"
+                onclick="Menu.toggle(event)">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <div class="drawer-backdrop" aria-hidden="true"></div>
-  <aside class="drawer" aria-label="قائمة الموبايل">
+  <!-- ✅ تعديل جذري: IDs + onclick للإغلاق -->
+  <div id="menuBackdrop" class="drawer-backdrop" aria-hidden="true" onclick="Menu.close(event)"></div>
+  <aside id="menuDrawer" class="drawer" aria-label="قائمة الموبايل">
     <div class="head">
       <b>القائمة</b>
-      <button class="close" type="button" data-drawer-close aria-label="إغلاق">×</button>
+      <button id="menuClose"
+              class="close"
+              type="button"
+              data-drawer-close
+              aria-label="إغلاق"
+              onclick="Menu.close(event)">×</button>
     </div>
     <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="about.html">من نحن</a>
-      <a href="services.html">خدماتنا</a>
-      <a href="contact.html">اتصل بنا</a>
+      <a href="index.html" onclick="Menu.close()">الرئيسية</a>
+      <a href="about.html" onclick="Menu.close()">من نحن</a>
+      <a href="services.html" onclick="Menu.close()">خدماتنا</a>
+      <a href="contact.html" onclick="Menu.close()">اتصل بنا</a>
     </nav>
     <div class="meta">الدمام • الأحساء • الخبر • القطيف • صفوة • رأس تنورة</div>
   </aside>
@@ -158,6 +174,41 @@
     </a>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <!-- ✅ حل جذري: المنيو تشتغل حتى لو main.js مش شغال -->
+<script>
+  window.Menu = {
+    open(e){
+      if(e){ e.preventDefault(); e.stopPropagation(); }
+      document.body.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+    },
+    close(e){
+      // ✅ مهم: ممنوع preventDefault هنا علشان اللينكات تروح للصفحات
+      if(e){ e.stopPropagation(); }
+      document.body.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    },
+    toggle(e){
+      if(document.body.classList.contains('menu-open')) this.close(e);
+      else this.open(e);
+    }
+  };
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') Menu.close(e);
+  }, true);
+
+  document.addEventListener('click', function(e){
+    if(!document.body.classList.contains('menu-open')) return;
+    const drawer = document.getElementById('menuDrawer');
+    const btn = document.getElementById('menuBtn');
+    if(drawer && btn && !drawer.contains(e.target) && !btn.contains(e.target)){
+      Menu.close(e);
+    }
+  }, true);
+</script>
+
+  <!-- ملفك الأساسي (سيبه) -->
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

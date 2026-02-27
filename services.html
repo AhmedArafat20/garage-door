@@ -6,12 +6,15 @@
   <title>خدماتنا — الأبواب الأوتوماتيكية بالدمام</title>
   <meta name="description" content="خدمات الأبواب الأوتوماتيكية بالدمام: تركيب وصيانة، تغيير محركات، قطع غيار أصلية، تغيير بكرات، ربل خيط جانبي، تشحيم، فتح وإغلاق بالجوال، إصلاح صدمات." />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="shortcut icon" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
 </head>
 
 <body>
   <div class="topbar">
     <div class="container inner">
-      <div class="msg">كل خدمات الأبواب الأوتوماتيكية — تنفيذ سريع وتشخيص دقيق</div>
+      <div class="msg">تركيب وصيانة باحتراف</div>
       <a class="tlink" href="contact.html"><span class="dot"></span> تواصل معنا</a>
     </div>
   </div>
@@ -19,7 +22,7 @@
   <header class="navbar">
     <div class="container inner">
       <a class="brand" href="index.html">
-        <span class="logo" aria-hidden="true"></span>
+        <!-- <img src="assets/img/logo.png" alt="لوجو الموقع" class="logo-img"> -->
         <span class="title">
           الأبواب الأوتوماتيكية بالدمام
           <small>تركيب وصيانة فورية رول / شتر / أمريكي</small>
@@ -36,24 +39,38 @@
       <div class="nav-actions">
         <a class="btn ghost" data-phone href="#">اتصال</a>
         <a class="btn primary" data-wa href="#" target="_blank" rel="noopener noreferrer">واتساب</a>
-        <button class="burger" type="button" data-burger aria-label="فتح قائمة الموبايل">
+
+        <!-- ✅ زر المنيو بحل جذري -->
+        <button id="menuBtn"
+                class="burger"
+                type="button"
+                data-burger
+                aria-label="فتح قائمة الموبايل"
+                onclick="Menu.toggle(event)">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <div class="drawer-backdrop" aria-hidden="true"></div>
-  <aside class="drawer" aria-label="قائمة الموبايل">
+  <!-- ✅ Backdrop + Drawer مع IDs -->
+  <div id="menuBackdrop" class="drawer-backdrop" aria-hidden="true" onclick="Menu.close(event)"></div>
+  <aside id="menuDrawer" class="drawer" aria-label="قائمة الموبايل">
     <div class="head">
       <b>القائمة</b>
-      <button class="close" type="button" data-drawer-close aria-label="إغلاق">×</button>
+      <button id="menuClose"
+              class="close"
+              type="button"
+              data-drawer-close
+              aria-label="إغلاق"
+              onclick="Menu.close(event)">×</button>
     </div>
     <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="about.html">من نحن</a>
-      <a href="services.html">خدماتنا</a>
-      <a href="contact.html">اتصل بنا</a>
+      <!-- ✅ مهم: لينكات تقفل بدون منع التنقل -->
+      <a href="index.html" onclick="Menu.close()">الرئيسية</a>
+      <a href="about.html" onclick="Menu.close()">من نحن</a>
+      <a href="services.html" onclick="Menu.close()">خدماتنا</a>
+      <a href="contact.html" onclick="Menu.close()">اتصل بنا</a>
     </nav>
     <div class="meta">الدمام • الأحساء • الخبر • القطيف • صفوة • رأس تنورة</div>
   </aside>
@@ -81,6 +98,14 @@
           <p>استبدال المحرك عند الضعف/الاحتراق مع ضبط القوة والاتجاه وتجربة تشغيل نهائية.</p>
         </div>
 
+        <div class="media-box">
+  <img src="assets/img/service-1.jpg" alt="">
+  <div class="media-content">
+    <h4>ضبط حركة الباب بالكامل</h4>
+    <p>نقوم بمعالجة مشاكل التعليق والاحتكاك لضمان حركة سلسة بدون صوت.</p>
+  </div>
+</div>
+
         <div class="card">
           <div class="icon">03</div>
           <h4>قطع غيار أصلية</h4>
@@ -92,6 +117,14 @@
           <h4>تغيير بكرات</h4>
           <p>علاج الاهتزاز والصوت العالي وتقطيع الحركة بتغيير البكرات وضبط المسار.</p>
         </div>
+
+        <div class="media-box">
+  <img src="assets/img/service-2.jpg" alt="">
+  <div class="media-content">
+    <h4>حلول الأعطال المفاجئة</h4>
+    <p>وصول سريع وتشخيص دقيق لأي عطل طارئ في الأبواب الأوتوماتيكية.</p>
+  </div>
+</div>
 
         <div class="card">
           <div class="icon">05</div>
@@ -110,6 +143,14 @@
           <h4>فتح وإغلاق الكراج من خلال الجوال</h4>
           <p>تركيب نظام تحكم بالجوال حسب الطلب مع إعدادات سهلة وتشغيل آمن.</p>
         </div>
+
+        <div class="media-box">
+  <img src="assets/img/service-3.jpg" alt="">
+  <div class="media-content">
+    <h4>تحسين أداء الأبواب القديمة</h4>
+    <p>إعادة تأهيل الأبواب القديمة لتعمل بكفاءة أعلى وعمر أطول.</p>
+  </div>
+</div>
 
         <div class="card">
           <div class="icon">08</div>
@@ -132,11 +173,6 @@
         </p>
       </div>
 
-      <div class="media-row" aria-label="صور متفرقة">
-        <div class="media"><img src="assets/img/service-1.jpg" alt="صورة متفرقة 1" /></div>
-        <div class="media"><img src="assets/img/service-2.jpg" alt="صورة متفرقة 2" /></div>
-        <div class="media"><img src="assets/img/service-3.jpg" alt="صورة متفرقة 3" /></div>
-      </div>
 
     </div>
   </main>
@@ -173,6 +209,41 @@
     </a>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <!-- ✅ Menu Script (مُصلح: اللينكات تروح للصفحات) -->
+  <script>
+    window.Menu = {
+      open(e){
+        if(e){ e.preventDefault(); e.stopPropagation(); }
+        document.body.classList.add('menu-open');
+        document.body.style.overflow = 'hidden';
+      },
+      close(e){
+        /* ✅ مهم: ممنوع preventDefault هنا علشان اللينكات تروح */
+        if(e){ e.stopPropagation(); }
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+      },
+      toggle(e){
+        if(document.body.classList.contains('menu-open')) this.close(e);
+        else this.open(e);
+      }
+    };
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') Menu.close(e);
+    }, true);
+
+    document.addEventListener('click', function(e){
+      if(!document.body.classList.contains('menu-open')) return;
+      const drawer = document.getElementById('menuDrawer');
+      const btn = document.getElementById('menuBtn');
+      if(drawer && btn && !drawer.contains(e.target) && !btn.contains(e.target)){
+        Menu.close(e);
+      }
+    }, true);
+  </script>
+
+  <!-- ملفك الأساسي (سيبه) -->
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

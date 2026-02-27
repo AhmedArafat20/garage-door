@@ -43,21 +43,20 @@ function setActiveNav(){
 
 // ====== FIX: تثبيت الناف بار تحت التوب بار مهما كان ارتفاعه ======
 function syncNavbarOffset(){
-  const topbar = document.querySelector(".topbar");
-  const navbar = document.querySelector(".navbar");
-  if(!topbar || !navbar) return;
-
-  const h = topbar.getBoundingClientRect().height;
-  navbar.style.top = `${Math.ceil(h)}px`;
+  /* ✅ تعديل مهم:
+     وقفنا الحركة بالكامل علشان ما يحصلش اختفاء للكلام/تداخل
+     (خلي CSS هو اللي يتحكم: top = var(--topbar-h))
+  */
+  return;
 }
 
 // ====== Menu (Mobile Drawer) ======
 function initDrawer(){
-  // امسك الزر سواء data-burger أو كلاس burger
-  const openBtns = Array.from(document.querySelectorAll("[data-burger], .burger"));
+  // امسك الزر سواء data-burger أو كلاس burger أو ID (✅ أقوى)
+  const openBtns = Array.from(document.querySelectorAll("#menuBtn, [data-burger], .burger"));
   let drawer = document.querySelector(".drawer");
   let backdrop = document.querySelector(".drawer-backdrop");
-  let closeBtn = document.querySelector("[data-drawer-close], .drawer .close");
+  let closeBtn = document.querySelector("#menuClose, [data-drawer-close], .drawer .close");
 
   // لو الخلفية مش موجودة اعملها
   if(!backdrop){
@@ -91,11 +90,10 @@ function initDrawer(){
   // (إعادة قراءة) في حالة العناصر اتعملت فوق
   drawer = document.querySelector(".drawer");
   backdrop = document.querySelector(".drawer-backdrop");
-  closeBtn = document.querySelector("[data-drawer-close], .drawer .close");
+  closeBtn = document.querySelector("#menuClose, [data-drawer-close], .drawer .close");
 
   const open = () => {
     document.body.classList.add("menu-open");
-    // منع سحب الصفحة وقت فتح المنيو (اختياري لكنه مفيد)
     document.body.style.overflow = "hidden";
   };
 
@@ -104,50 +102,47 @@ function initDrawer(){
     document.body.style.overflow = "";
   };
 
-  // اربط كل أزرار الفتح
+  // ✅ تعديل مهم: Capture = true عشان أي Overlay ما يمنعش الكليك
   openBtns.forEach(btn=>{
     btn.addEventListener("click", (e)=>{
       e.preventDefault();
       e.stopPropagation();
       open();
-    }, { passive:false });
+    }, true);
   });
 
-  // زر الإغلاق
   if(closeBtn){
     closeBtn.addEventListener("click", (e)=>{
       e.preventDefault();
       e.stopPropagation();
       close();
-    }, { passive:false });
+    }, true);
   }
 
-  // الضغط على الخلفية يقفل
   if(backdrop){
     backdrop.addEventListener("click", (e)=>{
       e.preventDefault();
       close();
-    }, { passive:false });
+    }, true);
   }
 
-  // أي لينك جوه المنيو يقفل بعدها
   drawer.querySelectorAll("a").forEach(a=>{
     a.addEventListener("click", ()=> close());
   });
 
-  // ESC يقفل
   document.addEventListener("keydown", (e)=>{
     if(e.key === "Escape") close();
-  });
+  }, true);
 
-  // لو المستخدم ضغط خارج الـ drawer وهو مفتوح (حماية إضافية)
+  // حماية إضافية
   document.addEventListener("click", (e)=>{
     if(!document.body.classList.contains("menu-open")) return;
     const insideDrawer = drawer.contains(e.target);
     const isBurger = openBtns.some(b => b.contains(e.target));
     if(!insideDrawer && !isBurger) close();
-  });
+  }, true);
 }
+
 // ====== Hero Slider ======
 function initSlider(){
   const slider = document.querySelector("[data-slider]");
@@ -221,11 +216,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
   initSlider();
   initWhatsAppForm();
 
-  // FIX: خلي الناف بار دايمًا تحت التوب بار بدقة
+  // كانت بتسبب حركة وتداخل، خليناها no-op
   syncNavbarOffset();
   window.addEventListener("resize", syncNavbarOffset);
 
-  // سنة الفوتر
   const y = document.querySelector("[data-year]");
   if(y) y.textContent = new Date().getFullYear();
 });

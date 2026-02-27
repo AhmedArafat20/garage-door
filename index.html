@@ -6,13 +6,16 @@
   <title>الأبواب الأوتوماتيكية بالدمام — تركيب وصيانة فورية رول/شتر/أمريكي</title>
   <meta name="description" content="تركيب وصيانة الأبواب الأوتوماتيكية بالدمام والأحساء والخبر والقطيف وصفوة ورأس تنورة. تغيير محركات، قطع غيار أصلية، بكرات، ربل خيط جانبي، تشحيم، فتح وإغلاق الكراج بالجوال، إصلاح الصدمات." />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="shortcut icon" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
 </head>
 
 <body>
   <!-- Topbar -->
   <div class="topbar">
     <div class="container inner">
-      <div class="msg">تركيب وصيانة فورية للأبواب الأوتوماتيكية — جودة عالية وقطع أصلية وضمان</div>
+      <div class="msg">خبرة وجودة في التنفيذ</div>
       <a class="tlink" href="contact.html" aria-label="تواصل معنا">
         <span class="dot" aria-hidden="true"></span>
         تواصل معنا
@@ -24,7 +27,7 @@
   <header class="navbar">
     <div class="container inner">
       <a class="brand" href="index.html" aria-label="الرئيسية">
-        <span class="logo" aria-hidden="true"></span>
+        <!-- <img src="assets/img/logo.png" alt="لوجو الموقع" class="logo-img"> -->
         <span class="title">
           الأبواب الأوتوماتيكية بالدمام
           <small>تركيب وصيانة فورية رول / شتر / أمريكي</small>
@@ -42,7 +45,13 @@
         <a class="btn ghost" data-phone href="#" aria-label="اتصال">اتصال</a>
         <a class="btn primary" data-wa href="#" target="_blank" rel="noopener noreferrer" aria-label="واتساب">واتساب</a>
 
-        <button class="burger" type="button" data-burger aria-label="فتح قائمة الموبايل">
+        <!-- ✅ تعديل جذري: onclick يضمن الفتح -->
+        <button id="menuBtn"
+                class="burger"
+                type="button"
+                data-burger
+                aria-label="فتح قائمة الموبايل"
+                onclick="Menu.toggle(event)">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -50,17 +59,23 @@
   </header>
 
   <!-- Mobile Drawer -->
-  <div class="drawer-backdrop" aria-hidden="true"></div>
-  <aside class="drawer" aria-label="قائمة الموبايل">
+  <!-- ✅ تعديل جذري: onclick للخلفية والإغلاق -->
+  <div id="menuBackdrop" class="drawer-backdrop" aria-hidden="true" onclick="Menu.close(event)"></div>
+  <aside id="menuDrawer" class="drawer" aria-label="قائمة الموبايل">
     <div class="head">
       <b>القائمة</b>
-      <button class="close" type="button" data-drawer-close aria-label="إغلاق">×</button>
+      <button id="menuClose"
+              class="close"
+              type="button"
+              data-drawer-close
+              aria-label="إغلاق"
+              onclick="Menu.close(event)">×</button>
     </div>
     <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="about.html">من نحن</a>
-      <a href="services.html">خدماتنا</a>
-      <a href="contact.html">اتصل بنا</a>
+      <a href="index.html" onclick="Menu.close()">الرئيسية</a>
+      <a href="about.html" onclick="Menu.close()">من نحن</a>
+      <a href="services.html" onclick="Menu.close()">خدماتنا</a>
+      <a href="contact.html" onclick="Menu.close()">اتصل بنا</a>
     </nav>
     <div class="meta">
       نخدم: الدمام • الأحساء • الخبر • القطيف • صفوة • رأس تنورة
@@ -161,6 +176,16 @@
           </ul>
         </div>
 
+          <div class="media-box">
+  <img src="assets/img/hero-1.jpg" alt="">
+  <div class="media-content">
+    <h4>تركيب الأبواب الأوتوماتيكية</h4>
+    <p>تنفيذ احترافي وضبط دقيق للمسارات لضمان حركة سلسة وآمنة.</p>
+  </div>
+</div>
+
+
+
         <div class="panel">
           <h4>لماذا نحن</h4>
           <p>
@@ -177,6 +202,13 @@
 
     </div>
   </section>
+<div class="media-box">
+  <img src="assets/img/hero-3.jpg" alt="">
+  <div class="media-content">
+    <h4>تغيير محركات وقطع غيار</h4>
+    <p>قطع أصلية وضمان جودة لأداء أقوى وعمر أطول للباب.</p>
+  </div>
+</div>
 
   <section class="section">
     <div class="container">
@@ -206,11 +238,14 @@
         </div>
       </div>
 
-      <div class="media-row" aria-label="صور توضيحية">
-        <div class="media"><img src="assets/img/service-1.jpg" alt="صورة خدمة 1" /></div>
-        <div class="media"><img src="assets/img/service-2.jpg" alt="صورة خدمة 2" /></div>
-        <div class="media"><img src="assets/img/service-3.jpg" alt="صورة خدمة 3" /></div>
-      </div>
+      <div class="media-box">
+  <img src="assets/img/hero-2.jpg" alt="">
+  <div class="media-content">
+    <h4>صيانة وإصلاح الأعطال</h4>
+    <p>تشخيص سريع وإصلاح فوري للمحركات والبكرات وجميع الأعطال.</p>
+  </div>
+</div>
+
 
     </div>
   </section>
@@ -275,6 +310,40 @@
     </a>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <!-- ✅ حل جذري: المنيو تشتغل حتى لو main.js مش شغال -->
+<script>
+  window.Menu = {
+    open(e){
+      if(e){ e.preventDefault(); e.stopPropagation(); }
+      document.body.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+    },
+    close(e){
+      // ✅ مهم: ممنوع preventDefault هنا علشان اللينكات تروح للصفحات
+      if(e){ e.stopPropagation(); }
+      document.body.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    },
+    toggle(e){
+      if(document.body.classList.contains('menu-open')) this.close(e);
+      else this.open(e);
+    }
+  };
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') Menu.close(e);
+  }, true);
+
+  document.addEventListener('click', function(e){
+    if(!document.body.classList.contains('menu-open')) return;
+    const drawer = document.getElementById('menuDrawer');
+    const btn = document.getElementById('menuBtn');
+    if(drawer && btn && !drawer.contains(e.target) && !btn.contains(e.target)){
+      Menu.close(e);
+    }
+  }, true);
+</script>
+  <!-- ملفك الأساسي (سيبه) -->
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
