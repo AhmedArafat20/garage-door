@@ -273,15 +273,10 @@ body.menu-open .drawer{right:0}
 
 
 .hero-clean .hero-bg{
-  position:absolute;
-  inset:0;
-
-  background-image: url("/assets/img/hero.jpg");
-  background-size: 110%; /* 👈 هنا التحكم */
-  background-position: center;
-  background-repeat: no-repeat;
-
-  z-index:0;
+  background-image: url("../img/hero.jpg") !important;
+  background-size: 110% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
 /* طبقة خفيفة عشان النص يبان */
 .hero-clean::after{
