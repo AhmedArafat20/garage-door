@@ -749,3 +749,235 @@ body.menu-open{
   transform:translateY(-2px) scale(1.03);
   box-shadow: 0 18px 40px rgba(37,99,235,.35);
 }
+
+/* ===== Services Showcase (World Class) ===== */
+.services-showcase{
+  padding: 34px 0;
+}
+
+.svc-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  margin-bottom:14px;
+}
+
+.svc-head h2{
+  margin:10px 0 6px;
+  font-size: 26px;
+  font-weight: 1000;
+}
+
+.svc-head p{
+  margin:0;
+  color:var(--muted);
+  font-weight:800;
+  line-height:1.9;
+  max-width: 720px;
+}
+
+.svc-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+  margin-top:14px;
+}
+
+.svc-card{
+  background: rgba(255,255,255,.86);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(2,8,23,.06);
+  padding:16px;
+  overflow:hidden;
+
+  transform: translateY(12px);
+  opacity: 0;
+  transition: .55s cubic-bezier(.2,.8,.2,1);
+}
+
+.svc-card.in-view{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.svc-card h3{
+  margin:0 0 10px;
+  font-size:18px;
+  font-weight:1000;
+}
+
+.svc-img{
+  border-radius: 16px;
+  overflow:hidden;
+  height: 190px;
+  border:1px solid var(--line);
+  background:#fff;
+  box-shadow: 0 10px 20px rgba(2,8,23,.06);
+  margin-bottom:10px;
+}
+
+.svc-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition: .5s ease;
+}
+
+.svc-card:hover .svc-img img{
+  transform: scale(1.06);
+}
+
+.svc-card p{
+  margin:0;
+  color:var(--muted);
+  font-weight:800;
+  line-height:2;
+}
+
+.svc-cta{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+
+  opacity:0;
+  transform: translateY(12px);
+  transition: .55s cubic-bezier(.2,.8,.2,1);
+}
+.svc-cta.in-view{
+  opacity:1;
+  transform: translateY(0);
+}
+
+@media (max-width: 980px){
+  .svc-grid{ grid-template-columns: 1fr; }
+  .svc-head{ flex-direction:column; align-items:flex-start; }
+}
+
+/* احترام تقليل الحركة */
+@media (prefers-reduced-motion: reduce){
+  .svc-card, .svc-cta, .svc-img img{
+    transition:none !important;
+  }
+}
+/* ===== RADICAL FIX: Services section visibility ===== */
+.services-pro,
+.services-pro *{
+  visibility: visible !important;
+}
+
+.services-pro{
+  display:block !important;
+  opacity:1 !important;
+  position:relative !important;
+  z-index:5 !important;
+}
+
+.services-grid{
+  display:grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap:16px !important;
+  align-items:stretch !important;
+  opacity:1 !important;
+}
+
+@media (max-width: 980px){
+  .services-grid{ grid-template-columns: 1fr !important; }
+}
+
+/* Card */
+.service-card{
+  display:flex !important;
+  flex-direction:column !important;
+  background: rgba(255,255,255,.85) !important;
+  border:1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 14px 35px rgba(2,8,23,.10) !important;
+  overflow:hidden !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+
+/* Image */
+.service-media{
+  position:relative !important;
+  height:240px !important;
+  overflow:hidden !important;
+  background:#e9eef7 !important;
+}
+
+.service-media img{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  display:block !important;
+}
+
+
+/* overlay gradient */
+.service-media::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background: linear-gradient(to top, rgba(2,8,23,.70), rgba(2,8,23,.05), transparent) !important;
+  pointer-events:none !important;
+}
+
+/* Body */
+.service-body{
+  padding:16px !important;
+}
+
+.service-body h4{
+  margin:0 0 8px !important;
+  font-weight:1000 !important;
+  font-size:18px !important;
+}
+
+.service-body p{
+  margin:0 !important;
+  color:var(--muted) !important;
+  font-weight:700 !important;
+  line-height:1.9 !important;
+}
+
+.service-actions{
+  margin-top:12px !important;
+  display:flex !important;
+  gap:10px !important;
+  flex-wrap:wrap !important;
+}
+
+/* Hover fancy */
+.service-card:hover .service-media img{
+  transform: scale(1.06) !important;
+  transition: .45s ease !important;
+}
+
+/* Animations (safe: even if JS not running, cards stay visible) */
+/* ===== Reveal Animation (Safe) ===== */
+.reveal{
+  will-change: transform, opacity;
+}
+
+.reveal.in{
+  animation: fadeUp 1.2s ease-out both; /* 👈 بدل .65s */
+}
+
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(10px); /* 👈 كان 16px */
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

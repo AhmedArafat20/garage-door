@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>الأبواب الأوتوماتيكية بالدمام — تركيب وصيانة فورية رول/شتر/أمريكي</title>
   <meta name="description" content="تركيب وصيانة الأبواب الأوتوماتيكية بالدمام والأحساء والخبر والقطيف وصفوة ورأس تنورة. تغيير محركات، قطع غيار أصلية، بكرات، ربل خيط جانبي، تشحيم، فتح وإغلاق الكراج بالجوال، إصلاح الصدمات." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- ✅ Cache Busting (حل مشكلة اللاب/الكاش) -->
+  <link rel="stylesheet" href="assets/css/style.css?v=7" />
+
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="shortcut icon" href="assets/img/favicon.png">
-<link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="shortcut icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
 </head>
 
 <body>
@@ -45,7 +48,7 @@
         <a class="btn ghost" data-phone href="#" aria-label="اتصال">اتصال</a>
         <a class="btn primary" data-wa href="#" target="_blank" rel="noopener noreferrer" aria-label="واتساب">واتساب</a>
 
-        <!-- ✅ تعديل جذري: onclick يضمن الفتح -->
+        <!-- ✅ حل جذري: onclick يضمن الفتح -->
         <button id="menuBtn"
                 class="burger"
                 type="button"
@@ -59,7 +62,6 @@
   </header>
 
   <!-- Mobile Drawer -->
-  <!-- ✅ تعديل جذري: onclick للخلفية والإغلاق -->
   <div id="menuBackdrop" class="drawer-backdrop" aria-hidden="true" onclick="Menu.close(event)"></div>
   <aside id="menuDrawer" class="drawer" aria-label="قائمة الموبايل">
     <div class="head">
@@ -86,38 +88,39 @@
   <main id="main" class="hero">
     <div class="container hero-grid">
 
-<section class="hero-clean">
-  <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+      <section class="hero-clean">
+        <!-- ✅ الصورة من HTML عشان تشتغل على GitHub Pages -->
+        <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
 
-  <div class="hero-inner">
-    <span class="badge">⚡ استجابة سريعة • صيانة فورية • تنفيذ احترافي</span>
+        <div class="hero-inner">
+          <span class="badge">⚡ استجابة سريعة • صيانة فورية • تنفيذ احترافي</span>
 
-    <h1>
-      الأبواب الأوتوماتيكية بالدمام
-      <br>
-      تركيب وصيانة فورية رول / شتر / أمريكي
-    </h1>
+          <h1>
+            الأبواب الأوتوماتيكية بالدمام
+            <br>
+            تركيب وصيانة فورية رول / شتر / أمريكي
+          </h1>
 
-    <p>
-      نقدم خدمات تركيب وصيانة الأبواب الأوتوماتيكية بأعلى جودة:
-      تغيير محركات، قطع غيار أصلية، تشحيم، إصلاح صدمات،
-      وأنظمة فتح وإغلاق بالكوالك بالجوال — خدمة سريعة في جميع المناطق.
-    </p>
+          <p>
+            نقدم خدمات تركيب وصيانة الأبواب الأوتوماتيكية بأعلى جودة:
+            تغيير محركات، قطع غيار أصلية، تشحيم، إصلاح صدمات،
+            وأنظمة فتح وإغلاق بالكوالك بالجوال — خدمة سريعة في جميع المناطق.
+          </p>
 
-    <div class="hero-actions">
-      <a class="btn primary" href="contact.html">اطلب خدمة الآن</a>
-      <a class="btn ghost" href="services.html">عرض الخدمات</a>
-      <a class="btn ghost" data-phone href="#">اتصال مباشر</a>
-    </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="contact.html">اطلب خدمة الآن</a>
+            <a class="btn ghost" href="services.html">عرض الخدمات</a>
+            <a class="btn ghost" data-phone href="#">اتصال مباشر</a>
+          </div>
 
-    <div class="hero-features">
-      <span>✔ تركيب احترافي</span>
-      <span>✔ قطع أصلية</span>
-      <span>✔ سرعة تنفيذ</span>
-      <span>✔ ضمان جودة</span>
-    </div>
-  </div>
-</section>
+          <div class="hero-features">
+            <span>✔ تركيب احترافي</span>
+            <span>✔ قطع أصلية</span>
+            <span>✔ سرعة تنفيذ</span>
+            <span>✔ ضمان جودة</span>
+          </div>
+        </div>
+      </section>
 
       <aside class="side-card" aria-label="معلومات سريعة">
         <h2>نخدم الدمام وضواحيها</h2>
@@ -135,12 +138,12 @@
           <span class="tag">حلول بالجوال</span>
         </div>
 
-        <div class="kpis" aria-label="مؤشرات خدمة">
+        <!-- <div class="kpis" aria-label="مؤشرات خدمة">
           <div class="kpi"><b>سرعة</b><span>استجابة سريعة</span></div>
           <div class="kpi"><b>جودة</b><span>تشطيب نظيف</span></div>
           <div class="kpi"><b>خبرة</b><span>حلول عملية</span></div>
           <div class="kpi"><b>أمان</b><span>ضبط وحماية</span></div>
-        </div>
+        </div> -->
 
         <div style="display:flex; gap:10px; flex-wrap:wrap">
           <a class="btn primary" data-wa href="#" target="_blank" rel="noopener noreferrer">واتساب الآن</a>
@@ -151,7 +154,151 @@
     </div>
   </main>
 
-  <!-- Sections -->
+  <!-- ✅ NEW: Services Showcase (بعد الهيرو مباشرة) -->
+  <section class="services-showcase" aria-label="خدماتنا الأساسية">
+    <div class="container">
+      <div class="svc-head">
+        <div>
+          <span class="badge">خدماتنا</span>
+          <h2> خدماتنا الأساسية</h2>
+          <p>تشخيص دقيق + تنفيذ مرتب + قطع معتمدة — خدمة سريعة داخل الدمام وضواحيها.</p>
+        </div>
+        <a class="btn primary" href="contact.html">اطلب خدمة الآن</a>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc-card reveal">
+          <h3> الابواب الرول</h3>
+          <div class="svc-img">
+            <img src="assets/img/13.jpg" alt="خدمة الباب الرول">
+          </div>
+          <p>
+            تركيب وصيانة الأبواب الرول بجميع مناطق الدمام: تغيير محركات وأجهزة كنترول وبرمجة ريمودات
+            وتغيير البكرات والخيط الجانبي والسبرنج الداخلي وعمل الأقفال الأرضية والوسط
+            وفتح وغلق الباب من خلال الجوال ومعالجة الأصوات المزعجة وتوسيع المسارات ليتمتع بحرية في الصعود والنزول.
+          </p>
+        </article>
+
+        <article class="svc-card reveal">
+          <h3> الابواب الشرائح المنزلقه (الامريكي) </h3>
+          <div class="svc-img">
+            <img src="assets/img/11.jpg" alt="خدمة باب الشتر">
+          </div>
+          <p>
+            تركيب وصيانة الأبواب الأمريكية المنزلقة بجميع أنواعها، ضبط الحركة والانزلاق بسلاسة، تغيير المحركات والقطع التالفة، معالجة التعليق والصوت، وضبط الحساسات (إن وجدت)، مع ضمان فتح وإغلاق ناعم وثابت بدون اهتزاز أو تقطيع.
+          </p>
+        </article>
+
+
+        <article class="svc-card reveal">
+          <h3> الابواب الشتر </h3>
+          <div class="svc-img">
+            <img src="assets/img/8.jpg" alt="خدمة الباب الأمريكي">
+          </div>
+          <p>
+تركيب وصيانة الأبواب الشتر للمحلات والمنازل، تغيير المحركات والكنترول، إصلاح الأعطال المفاجئة، تغيير البكرات والربل، ضبط المسارات ومعالجة الصوت العالي، مع ضمان تشغيل سلس وآمن وتحمل الاستخدام اليومي.
+          </p>
+        </article>
+
+                <article class="svc-card reveal">
+          <h3>   باب امريكي </h3>
+          <div class="svc-img">
+            <img src="assets/img/12.jpg" alt="خدمة باب الشتر">
+          </div>
+          <p>
+تركيب وصيانة الأبواب الأمريكية بجميع أنواعها، ضبط الحركة والانزلاق، تغيير المحركات وقطع الغيار، معالجة الصوت والاحتكاك، برمجة الريموتات، مع ضمان أداء قوي وتشغيل سلس يناسب الاستخدام اليومي
+          </p>
+        </article>
+
+        <article class="svc-card reveal">
+          <h3> الابواب السحب الجانبي  </h3>
+          <div class="svc-img">
+            <img src="assets/img/50.jpg" alt="تغيير المحركات والكنترول">
+          </div>
+          <p>
+تركيب وصيانة أبواب السحب الجانبي بجميع المقاسات، ضبط حركة السحب، تغيير العجلات والمسارات، معالجة التعليق والاحتكاك، تركيب محركات أوتوماتيكية وربطها بالريموت أو الجوال، لضمان حركة سهلة وانسيابية.
+          </p>
+        </article>
+
+                        <article class="svc-card reveal">
+          <h3>   باب اذرع ايطالي </h3>
+          <div class="svc-img">
+            <img src="assets/img/2.jpg" alt="خدمة باب الشتر">
+          </div>
+          <p>
+تركيب وصيانة الأبواب الأوتوماتيكية بنظام الأذرع الإيطالي، ضبط فتح وغلق الباب بسلاسة، تغيير الأذرع والمحركات، برمجة الأنظمة، معالجة الأعطال، وضمان تشغيل هادئ ومظهر احترافي يناسب الفلل والمداخل الفخمة.
+          </p>
+        </article>
+
+        <article class="svc-card reveal">
+          <h3>   المصدات لمواقف السيارات (بارير) </h3>
+          <div class="svc-img">
+            <img src="assets/img/51.jpg" alt="برمجة ريموت وفتح بالجوال">
+          </div>
+          <p>
+            توريد وتركيب وصيانة أنظمة البارير لمواقف السيارات، تركيب أنظمة تحكم أوتوماتيكية، برمجة الريموتات، ربط بالجوال أو الكروت، صيانة الأعطال، وضبط سرعة الفتح والإغلاق لتأمين الدخول والخروج بسهولة وأمان.
+          </p>
+        </article>
+
+        <article class="svc-card reveal">
+          <h3> النوافذ الشتر    </h3>
+          <div class="svc-img">
+            <img src="assets/img/52.jpg" alt="تغيير بكرات وربل وخيط جانبي">
+          </div>
+          <p>
+            تركيب وصيانة نوافذ الشتر، تغيير المحركات والشرائح، ضبط الحركة، معالجة الصوت والاحتكاك، تحسين العزل والخصوصية، مع إمكانية التحكم بالريموت أو الجوال لسهولة الاستخدام اليومي.
+          </p>
+        </article>
+
+        <article class="svc-card reveal">
+          <h3>  ابواب الشتر بولي كاربونايت  </h3>
+          <div class="svc-img">
+            <img src="assets/img/29.jpg" alt="إصلاح صدمات وتوسيع مسارات">
+          </div>
+          <p>
+  تستخدم في المراكز التجارية العملاقه حيث تتيح الروئية للمنتجات ونقدم اكبر تشكيل من انظمه الابواب البولي كاربونايت ، تغيير القطع التالفة، ضبط المسارات، معالجة الاهتزاز والصوت، مع الحفاظ على الشكل الجمالي والشفافية والأمان العالي.
+          </p>
+        </article>
+
+                <article class="svc-card reveal">
+          <h3>  ابواب الشتر الألمونيوم   </h3>
+          <div class="svc-img">
+            <img src="assets/img/54.jpg" alt="إصلاح صدمات وتوسيع مسارات">
+          </div>
+          <p>
+    تركيب وصيانة أبواب الشتر الألمنيوم بجودة عالية، تغيير الشرائح والمحركات، معالجة الأعطال، ضبط الحركة، مع مقاومة للصدأ وتحمل الظروف الجوية، وتشغيل سلس يدوم لفترة طويلة.
+          </p>
+        </article>
+
+                <article class="svc-card reveal">
+          <h3>  ابواب مناطق التحميل    </h3>
+          <div class="svc-img">
+            <img src="assets/img/55.jpg" alt="إصلاح صدمات وتوسيع مسارات">
+          </div>
+          <p>
+ تركيب وصيانة أبواب مناطق التحميل للمخازن والمصانع، ضبط الحركة الثقيلة، تغيير المحركات القوية، صيانة الأنظمة الهيدروليك (إن وجدت)، معالجة الأعطال، لضمان تشغيل آمن وسريع يناسب الاستخدام الشاق.
+          </p>
+        </article>
+
+                        <article class="svc-card reveal">
+          <h3>   محرك سحب جانبي سلايدنج  </h3>
+          <div class="svc-img">
+            <img src="assets/img/9.jpg" alt="خدمة باب الشتر">
+          </div>
+          <p>
+توريد وتركيب وصيانة محركات السحب الجانبي (Sliding) للأبواب الكبيرة، ضبط قوة السحب والسرعة، برمجة الريموتات، ربط بالجوال، معالجة الأعطال والتوقف المفاجئ، مع ضمان حركة سلسة وثابتة بدون تقطيع أو ضعف في الأداء.
+          </p>
+        </article>
+      </div>
+
+      <div class="svc-cta reveal">
+        <a class="btn primary" href="contact.html">تواصل معنا الآن</a>
+        <a class="btn" href="services.html">عرض صفحة الخدمات</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sections (زي ما هي عندك) -->
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -176,22 +323,6 @@
           </ul>
         </div>
 
-<div class="media-box">
-  <img src="assets/img/1.jpg" alt="">
-  <div class="media-content">
-    <h4>تركيب الأبواب الأوتوماتيكية</h4>
-    <p>تنفيذ احترافي وضبط دقيق للمسارات لضمان حركة سلسة وآمنة.</p>
-  </div>
-</div>
-
-<div class="media-btn-wrap">
-  <a href="services.html" class="media-btn">
-    عرض جميع الأعمال
-  </a>
-</div>
-
-
-
         <div class="panel">
           <h4>لماذا نحن</h4>
           <p>
@@ -208,54 +339,8 @@
 
     </div>
   </section>
-<div class="media-box">
-  <img src="assets/img/17.jpg" alt="">
-  <div class="media-content">
-    <h4>تغيير محركات وقطع غيار</h4>
-    <p>قطع أصلية وضمان جودة لأداء أقوى وعمر أطول للباب.</p>
-  </div>
-</div>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h3>خدماتنا الأساسية</h3>
-          <p>باقة خدمات كاملة للأبواب الأوتوماتيكية — من التركيب حتى الصيانة والإصلاح.</p>
-        </div>
-        <a class="btn" href="services.html">كل الخدمات</a>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon">1</div>
-          <h4>تركيب وصيانة جميع الأبواب الأوتوماتيكية</h4>
-          <p>تركيب احترافي وضبط دقيق للمسارات والحركة، مع صيانة دورية تمنع الأعطال المفاجئة.</p>
-        </div>
-        <div class="card">
-          <div class="icon">2</div>
-          <h4>تغيير المحركات وقطع الغيار الأصلية</h4>
-          <p>استبدال محرك الباب عند الضعف أو الاحتراق، وتوفير قطع أصلية/معتمدة لضمان العمر الأطول.</p>
-        </div>
-        <div class="card">
-          <div class="icon">3</div>
-          <h4>فتح وإغلاق الكراج عبر الجوال</h4>
-          <p>تركيب أنظمة تحكم آمنة وسهلة للاستخدام اليومي، مع إعدادات وتشغيل سلس.</p>
-        </div>
-      </div>
-
-      <div class="media-box">
-  <img src="assets/img/hero-2.jpg" alt="">
-  <div class="media-content">
-    <h4>صيانة وإصلاح الأعطال</h4>
-    <p>تشخيص سريع وإصلاح فوري للمحركات والبكرات وجميع الأعطال.</p>
-  </div>
-</div>
 
 
-
-    </div>
-  </section>
 
   <section class="section">
     <div class="container">
@@ -285,9 +370,7 @@
     <div class="container inner">
       <div>
         <b>الأبواب الأوتوماتيكية بالدمام</b>
-        <p>
-          تركيب وصيانة فورية رول / شتر / أمريكي — قطع غيار أصلية وضبط احترافي للحركة.
-        </p>
+        <p>تركيب وصيانة فورية رول / شتر / أمريكي — قطع غيار أصلية وضبط احترافي للحركة.</p>
         <p><b>الهاتف:</b> <a data-phone href="#">0542076041</a> — <b>واتساب:</b> <a data-wa href="#" target="_blank" rel="noopener noreferrer">مراسلة</a></p>
       </div>
       <div>
@@ -301,7 +384,6 @@
         <p>تغيير محركات • قطع غيار أصلية • تغيير بكرات • ربل خيط جانبي • تشحيم • إصلاح صدمات</p>
       </div>
     </div>
-
     <div class="copy">© <span data-year></span> جميع الحقوق محفوظة</div>
   </footer>
 
@@ -318,39 +400,74 @@
   </div>
 
   <!-- ✅ حل جذري: المنيو تشتغل حتى لو main.js مش شغال -->
-<script>
-  window.Menu = {
-    open(e){
-      if(e){ e.preventDefault(); e.stopPropagation(); }
-      document.body.classList.add('menu-open');
-      document.body.style.overflow = 'hidden';
-    },
-    close(e){
-      // ✅ مهم: ممنوع preventDefault هنا علشان اللينكات تروح للصفحات
-      if(e){ e.stopPropagation(); }
-      document.body.classList.remove('menu-open');
-      document.body.style.overflow = '';
-    },
-    toggle(e){
-      if(document.body.classList.contains('menu-open')) this.close(e);
-      else this.open(e);
-    }
-  };
+  <script>
+    window.Menu = {
+      open(e){
+        if(e){ e.preventDefault(); e.stopPropagation(); }
+        document.body.classList.add('menu-open');
+        document.body.style.overflow = 'hidden';
+      },
+      close(e){
+        if(e){ e.stopPropagation(); }
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+      },
+      toggle(e){
+        if(document.body.classList.contains('menu-open')) this.close(e);
+        else this.open(e);
+      }
+    };
 
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') Menu.close(e);
-  }, true);
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') Menu.close(e);
+    }, true);
 
-  document.addEventListener('click', function(e){
-    if(!document.body.classList.contains('menu-open')) return;
-    const drawer = document.getElementById('menuDrawer');
-    const btn = document.getElementById('menuBtn');
-    if(drawer && btn && !drawer.contains(e.target) && !btn.contains(e.target)){
-      Menu.close(e);
+    document.addEventListener('click', function(e){
+      if(!document.body.classList.contains('menu-open')) return;
+      const drawer = document.getElementById('menuDrawer');
+      const btn = document.getElementById('menuBtn');
+      if(drawer && btn && !drawer.contains(e.target) && !btn.contains(e.target)){
+        Menu.close(e);
+      }
+    }, true);
+     (function () {
+    const els = Array.from(document.querySelectorAll('.reveal'));
+    if (!els.length) return;
+
+    // لو في أي خطأ/عدم دعم: فعل الأنيميشن فوراً
+    function showAll() {
+      els.forEach(el => el.classList.add('in'));
     }
-  }, true);
-</script>
-  <!-- ملفك الأساسي (سيبه) -->
+
+    try {
+      if (!('IntersectionObserver' in window)) {
+        showAll();
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => io.observe(el));
+
+      // احتياط: لو الصفحة اتحملت ومافيش scroll، فعل أول عناصر بسرعة
+      setTimeout(() => {
+        els.slice(0, 2).forEach(el => el.classList.add('in'));
+      }, 80);
+
+    } catch (e) {
+      showAll();
+    }
+  })();
+  </script>
+
+  <!-- ملفك الأساسي -->
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
