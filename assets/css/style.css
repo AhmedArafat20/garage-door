@@ -1155,3 +1155,67 @@ p, a, span, div{
   color: #fff;
   cursor: default;
 }
+
+/* القسم كله */
+.services-intro{
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  font-family: 'Amiri', serif; /* أو الخط اللي انت عايزه */
+  color: #333;
+}
+
+/* العنوان */
+.services-intro h2{
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #007bff;
+}
+
+/* نص المقدمة */
+.services-intro .intro-text{
+  font-size: 18px;
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
+/* قائمة الخدمات */
+.services-intro .services-list{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.services-intro .services-list li{
+  font-size: 18px;
+  margin-bottom: 8px;
+  padding-left: 12px;
+  position: relative;
+  color: #111;
+}
+
+/* أيقونة صغيرة على كل عنصر */
+.services-intro .services-list li::before{
+  content: "✔"; /* علامة صح صغيرة */
+  color: #007bff;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* المنطقة */
+.services-intro .region{
+  font-size: 18px;
+  color: #007bff;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* الفئة */
+.services-intro .clients{
+  font-size: 18px;
+  color: #555;
+  font-weight: 600;
+}
