@@ -57,15 +57,24 @@ img{max-width:100%; display:block}
   box-shadow:none;
 }
 
-.badge{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:7px 12px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background: rgba(255,255,255,.7);
-  backdrop-filter: blur(8px);
-  font-weight:700;
-  color: var(--muted);
+.badge {
+  display: inline-block;          /* لاحتواء النص بشكل أنيق */
+  background: linear-gradient(90deg, #86dcf4, #2730a4); /* تدرج لوني جذاب */
+  color: #fff;                    /* لون النص أبيض */
+  font-weight: 600;               /* خط غامق قليلًا */
+  padding: 8px 16px;              /* مسافة داخلية مناسبة */
+  border-radius: 25px;            /* حواف مستديرة بالكامل */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* ظل خفيف */
+  font-family: 'Amiri', serif;   /* خط عربي أنيق */
+  font-size: 14px;                /* حجم مناسب */
+  letter-spacing: 0.5px;          /* تباعد بسيط بين الحروف */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* حركة عند hover */
+}
+
+.badge:hover {
+  transform: translateY(-3px);          /* رفع خفيف عند التمرير */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* زيادة الظل عند hover */
+  cursor: default;
 }
 
 .kpis{
