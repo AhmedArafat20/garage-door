@@ -995,17 +995,17 @@ body.menu-open{
   border-radius: 8px;
 }
 
-/* 🔥 الحاوية */
+/* الحاوية */
 .float-wrap{
   position: fixed !important;
-  right: 15px !important;
-  left: auto !important;
+  left: 15px !important;  /* بدل right */
+  right: auto !important;
   bottom: 20px !important;
   top: auto !important;
 
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-end !important;
+  align-items: flex-start !important; /* تخليهم على الشمال */
   gap: 16px !important;
 
   z-index: 999999 !important;
@@ -1014,7 +1014,7 @@ body.menu-open{
   transform: none !important;
 }
 
-/* 🔥 الزر بدون خلفية */
+/* الزر بدون خلفية */
 .float-wrap .fbtn{
   background: none !important;
   box-shadow: none !important;
@@ -1022,36 +1022,36 @@ body.menu-open{
   padding: 0 !important;
 }
 
-/* 🔥 الأيقونة */
+/* الأيقونة */
 .float-wrap .fbtn img{
   width: 50px !important;
   height: 50px !important;
   display: block !important;
 }
 
-/* ✨ أنيميشن واتساب (تكبير بسيط) */
+/* أنيميشن واتساب */
 .float-wrap .fbtn.wa img{
   animation: waPulse 1.5s ease-in-out infinite !important;
 }
 
-/* ✨ أنيميشن الاتصال (حركة لف خفيفة) */
+/* أنيميشن الاتصال */
 .float-wrap .fbtn.phone img{
   animation: phoneShake 2s infinite !important;
 }
 
-/* 🔥 Hover */
+/* Hover */
 .float-wrap .fbtn:hover img{
   transform: scale(1.15) !important;
 }
 
-/* 🟢 pulse */
+/* pulse واتساب */
 @keyframes waPulse{
   0%{ transform: scale(1); }
   50%{ transform: scale(1.2); }
   100%{ transform: scale(1); }
 }
 
-/* 📞 shake */
+/* shake الاتصال */
 @keyframes phoneShake{
   0%{ transform: rotate(0); }
   20%{ transform: rotate(8deg); }
@@ -1061,7 +1061,7 @@ body.menu-open{
   100%{ transform: rotate(0); }
 }
 
-/* 🧼 إخفاء النص */
+/* إخفاء النص */
 .sr{
   position: absolute;
   width: 1px;
@@ -1104,4 +1104,54 @@ p, a, span, div{
 /* تصفية أي خط قديم */
 *{
     font-family: 'Amiri', serif !important;
+}
+
+/* تحسين المربع الجانبي */
+.side-card{
+  background: #fff; /* أو أي لون فاتح */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  font-family: 'Amiri', serif; /* لو عايز الخط الرقعة */
+  color: #333;
+}
+
+/* العنوان */
+.side-card h2{
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+/* فقرة المناطق */
+.side-card p{
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* كل منطقة تصبح نقطة منفصلة */
+.side-card p br{
+  display: none; /* نلغي الbr لو هنحول كل منطقة لعنصر منفصل */
+}
+
+/* استخدم span لكل منطقة لتنسيق أفضل */
+.side-card p span.area{
+  display: inline-block;
+  background: #f0f8ff; /* خلفية خفيفة */
+  color: #007bff; /* لون النص */
+  font-weight: 600;
+  padding: 4px 8px;
+  margin: 4px 4px 4px 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+/* تأثير hover على كل منطقة */
+.side-card p span.area:hover{
+  transform: translateY(-2px);
+  background: #007bff;
+  color: #fff;
+  cursor: default;
 }
