@@ -264,85 +264,82 @@ body.menu-open .drawer-backdrop{opacity:1; pointer-events:auto}
 body.menu-open .drawer{right:0}
 
 /* ===== Hero (Image Background) ===== */
-.hero{padding:26px 0 10px}
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:18px;
-  align-items:stretch;
+.hero{
+  padding:26px 0 10px;
 }
 
+.hero-grid{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* الكارد */
 .hero-clean{
   position:relative;
-  padding:80px 0 60px;
   overflow:hidden;
+  border-radius:14px;
 }
 
-/* الصورة ورا الكلام */
-
-
+/* الصورة */
 .hero-clean .hero-bg{
-  position:absolute;
-  inset:0;
-
-  background-size: 110%;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  z-index:0;
+  width:100%;
+  height:350px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
-/* طبقة خفيفة عشان النص يبان */
+
+/* ❌ حذف أي طبقة غامقة */
 .hero-clean::after{
-  content:"";
+  display:none;
+}
+
+/* 🔥 البادج */
+/* .badge{
   position:absolute;
-  inset:0;
-  background: rgba(0,0,0,.28);
-  z-index:1;
-  pointer-events:none;
-}
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
 
-.hero-inner{
-  position:relative;
-  z-index:2;
-  max-width:800px;
-  margin:auto;
-  text-align:center;
+  background: linear-gradient(135deg,#2563eb,#06b6d4);
   color:#fff;
-}
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:14px;
 
-.hero-clean h1{
-  font-size:36px;
-  line-height:1.4;
-  margin:12px 0;
-  font-weight:1000;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+} */
+.badge{
+  position:absolute;
+  top:5px; /* 👈 كان 15px خليناه أعلى */
+
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+
+  background: linear-gradient(135deg,#2563eb,#06b6d4);
   color:#fff;
-}
-.hero-clean p{
-  color: rgba(255,255,255,.92);
-  font-size:16px;
-  line-height:2;
-  margin-bottom:16px;
-  font-weight:700;
+
+  padding:12px 22px; /* 👈 زودنا العرض من هنا */
+  
+  border-radius:999px;
+  font-weight:800;
+  font-size:14px;
+
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  white-space:nowrap; /* 👈 يمنع نزول الكلام سطر تاني */
 }
 
-.hero-features{
-  margin-top:18px;
+/* ✅ الأزرار */
+.hero-actions{
   display:flex;
-  flex-wrap:wrap;
   justify-content:center;
   gap:12px;
+  flex-wrap:wrap;
 }
-.hero-features span{
-  background: rgba(255,255,255,.88);
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  font-weight:800;
-  color: #1f2937;
-  box-shadow:0 5px 15px rgba(0,0,0,.05);
-}
-
-
 
 /* ===== Side Card ===== */
 .side-card{
